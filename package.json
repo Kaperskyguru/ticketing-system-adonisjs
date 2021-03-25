@@ -1,5 +1,5 @@
 {
-  "name": "ticketing-system-adonisjs",
+  "name": "ticketing-app-adonisjs",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "format": "prettier --write ."
   },
   "devDependencies": {
-    "@adonisjs/assembler": "^5.0.1",
+    "@adonisjs/assembler": "^3.0.0",
     "adonis-preset-ts": "^2.1.0",
     "eslint": "^7.22.0",
     "eslint-config-prettier": "^8.1.0",
@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "@adonisjs/auth": "^5.1.1",
-    "@adonisjs/core": "^5.0.4-preview-rc",
+    "@adonisjs/core": "~5.0.4-preview-rc",
     "@adonisjs/lucid": "^10.0.0",
     "@adonisjs/repl": "^1.0.0",
     "luxon": "^1.26.0",

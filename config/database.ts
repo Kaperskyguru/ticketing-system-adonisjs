@@ -35,7 +35,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
     |
     */
     mysql: {
-      client: 'mysql2',
+      client: 'mysql',
       connection: {
         host: Env.get('MYSQL_HOST'),
         port: Env.get('MYSQL_PORT'),
