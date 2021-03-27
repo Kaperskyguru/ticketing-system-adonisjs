@@ -8,6 +8,7 @@ import {
   HasMany
 } from '@ioc:Adonis/Lucid/Orm'
 import Ticket from './Ticket'
+import Event from './Event'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -15,6 +16,9 @@ export default class User extends BaseModel {
 
   @column()
   public email: string
+
+  @column()
+  public name: string
 
   @column({ serializeAs: null })
   public password: string
@@ -30,6 +34,9 @@ export default class User extends BaseModel {
 
   @hasMany(() => Ticket)
   public tickets: HasMany<typeof Ticket>
+
+  @hasMany(() => Event)
+  public events: HasMany<typeof Event>
 
   @beforeSave()
   public static async hashPassword (user: User) {

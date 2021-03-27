@@ -2497,6 +2497,11 @@
   "resolved" "https://registry.npmjs.org/junk/-/junk-3.1.0.tgz"
   "version" "3.1.0"
 
+"keygen@^0.3.1":
+  "integrity" "sha1-Ay5q4efQ+I5xbEvfDq4NAhbjcsE="
+  "resolved" "https://registry.npmjs.org/keygen/-/keygen-0.3.1.tgz"
+  "version" "0.3.1"
+
 "kind-of@^3.0.2", "kind-of@^3.0.3", "kind-of@^3.2.0":
   "integrity" "sha1-MeohpzS6ubuw8yRm2JOupR5KPGQ="
   "resolved" "https://registry.npmjs.org/kind-of/-/kind-of-3.2.2.tgz"

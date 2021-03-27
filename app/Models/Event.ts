@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { BaseModel, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, BelongsTo, belongsTo, column, HasMany, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import Ticket from './Ticket';
+import User from './User';
 
 export default class Event extends BaseModel {
   @column({ isPrimary: true })
@@ -26,4 +27,7 @@ export default class Event extends BaseModel {
 
   @hasMany(() => Ticket)
   public tickets: HasMany<typeof Ticket>;
+
+  @belongsTo(() => User)
+  public user: BelongsTo<typeof User>
 }

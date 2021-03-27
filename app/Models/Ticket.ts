@@ -17,7 +17,13 @@ export default class Ticket extends BaseModel {
   public is_used: boolean
 
   @column()
-  public used_date: Date
+  public user_id: number
+
+  @column()
+  public event_id: number
+
+  @column()
+  public used_date: DateTime
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>

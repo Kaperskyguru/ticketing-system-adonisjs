@@ -10,6 +10,7 @@ export default class Events extends BaseSchema {
       table.text('description').nullable()
       table.date('date')
       table.float('ticket_price')
+      table.integer('user_id').unsigned().references('id').inTable('users').onDelete('CASCADE')
       table.timestamps(true)
     })
   }
