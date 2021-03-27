@@ -23,8 +23,7 @@ export default class TicketsController {
   public async update({ request, params }: HttpContextContract) {
     const ticket = await Ticket.find(params.id)
     if (ticket) {
-      ticket.is_used = request.input('is_used')
-      ticket.used_date = request.input('amount')
+      ticket.amount = request.input('amount')
       if (await ticket.save()) {
         await ticket.preload('user')
         await ticket.preload('event')
@@ -39,6 +38,7 @@ export default class TicketsController {
     const user = await auth.authenticate()
     const ticket = new Ticket()
     ticket.code = Keygen.hex(5)
+    ticket.eventId = request.input('event_id')
     ticket.amount = request.input('amount')
     await user.related('tickets').save(ticket)
     return ticket

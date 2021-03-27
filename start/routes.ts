@@ -23,3 +23,18 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async () => {
   return { hello: 'world' }
 })
+
+Route.group(() => {
+  Route.group(() => {
+    Route.post('register', 'AuthController.register')
+    Route.post('login', 'AuthController.login')
+  }).prefix('auth')
+
+  Route.group(() => {
+    Route.resource('events', 'EventsController').apiOnly()
+    Route.resource('tickets', 'TicketsController').apiOnly()
+
+    Route.post('events/buy/:id', 'EventsController.buy')
+    Route.post('events/join/:id', 'EventsController.join')
+  }).middleware('auth:api')
+}).prefix('api/v1')

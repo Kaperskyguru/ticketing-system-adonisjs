@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon'
 import { BaseModel, belongsTo, BelongsTo, column } from '@ioc:Adonis/Lucid/Orm'
-import User from "App/Models/User";
-import Event from 'App/Models/Event';
+import User from 'App/Models/User'
+import Event from 'App/Models/Event'
 
 export default class Ticket extends BaseModel {
   @column({ isPrimary: true })
@@ -17,13 +17,13 @@ export default class Ticket extends BaseModel {
   public is_used: boolean
 
   @column()
-  public user_id: number
+  public userId: number
 
   @column()
-  public event_id: number
+  public eventId: number
 
   @column()
-  public used_date: DateTime
+  public used_date: string
 
   @belongsTo(() => User)
   public user: BelongsTo<typeof User>
