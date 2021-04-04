@@ -30,10 +30,11 @@ Route.group(() => {
     Route.post('login', 'AuthController.login')
   }).prefix('auth')
 
+  Route.get('events', 'EventsController.index')
   Route.group(() => {
-    Route.resource('events', 'EventsController').apiOnly()
+    Route.resource('events', 'EventsController').apiOnly().except(['index'])
     Route.resource('tickets', 'TicketsController').apiOnly()
-
+    Route.get('users/:id/events', 'EventsController.userevents')
     Route.post('events/buy/:id', 'EventsController.buy')
     Route.post('events/join/:id', 'EventsController.join')
   }).middleware('auth:api')

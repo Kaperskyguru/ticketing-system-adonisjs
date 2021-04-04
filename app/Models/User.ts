@@ -1,12 +1,6 @@
 import { DateTime } from 'luxon'
 import Hash from '@ioc:Adonis/Core/Hash'
-import {
-  column,
-  beforeSave,
-  BaseModel,
-  hasMany,
-  HasMany
-} from '@ioc:Adonis/Lucid/Orm'
+import { column, beforeSave, BaseModel, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import Ticket from './Ticket'
 import Event from './Event'
 
@@ -19,6 +13,9 @@ export default class User extends BaseModel {
 
   @column()
   public name: string
+
+  @column()
+  public is_admin: boolean
 
   @column({ serializeAs: null })
   public password: string
@@ -39,7 +36,7 @@ export default class User extends BaseModel {
   public events: HasMany<typeof Event>
 
   @beforeSave()
-  public static async hashPassword (user: User) {
+  public static async hashPassword(user: User) {
     if (user.$dirty.password) {
       user.password = await Hash.make(user.password)
     }

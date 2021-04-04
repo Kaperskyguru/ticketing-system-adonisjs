@@ -8,6 +8,14 @@ export default class AuthController {
     const token = await auth.use('api').attempt(email, password, {
       expiresIn: '10 days',
     })
+    const token1 = token.toJSON().token
+    const user = await User.query().where('email', email).first()
+    // console.log(user)
+    // user.is_admin = false
+    return {
+      user,
+      token: token1,
+    }
     return token.toJSON()
   }
   public async register({ request, auth }: HttpContextContract) {

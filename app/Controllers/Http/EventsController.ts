@@ -11,6 +11,14 @@ export default class EventsController {
     const events = await Event.query().preload('user').preload('tickets')
     return events
   }
+
+  public async userevents({ auth }: HttpContextContract) {
+    const user = await auth.authenticate()
+    const events = await Event.query().where('user_id', user.id).preload('user').preload('tickets')
+    console.log(events)
+    return events
+  }
+
   public async show({ params }: HttpContextContract) {
     try {
       const event = await Event.find(params.id)
