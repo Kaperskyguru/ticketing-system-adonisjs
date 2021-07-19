@@ -35,7 +35,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
     |
     */
     mysql: {
-      client: 'mysql',
+      client: 'mysql2',
       connection: {
         host: Env.get('MYSQL_HOST'),
         port: Env.get('MYSQL_PORT'),
@@ -44,9 +44,8 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
         database: Env.get('MYSQL_DB_NAME'),
       },
       healthCheck: false,
-			debug: false,
+      debug: false,
     },
-
   },
 
   /*
@@ -61,8 +60,7 @@ const databaseConfig: DatabaseConfig & { orm: Partial<OrmConfig> } = {
   | - Or define a custom function to compute the primary key for a given model.
   |
   */
-  orm: {
-  },
+  orm: {},
 }
 
 export default databaseConfig
